@@ -2,19 +2,17 @@ package it.polito.tdp.libretto;
 
 import java.time.LocalDate;
 
-// POJO
+//POJO
 
 public class Voto implements Comparable<Voto>{
 	
 	private String esame ;
 	private int voto ;
-	
 	//private LocalDate data ;
 	
-	public Voto(String esame, int voto) {
-		this.esame = esame ;
-		this.voto = voto ;
-		
+	public Voto(String esame, int voto){
+		this.esame = esame;
+		this.voto = voto;
 	}
 
 	public String getEsame() {
@@ -30,14 +28,13 @@ public class Voto implements Comparable<Voto>{
 	}
 
 	public void setVoto(int voto) {
-		if(voto<18 || voto>34)
+		if(voto<18 || voto>34)//|| voto>30
 			throw new IllegalArgumentException("Valore non ammesso");
 		this.voto = voto;
 	}
 	
 	public String toString(){
 		return esame+" "+voto;
-		
 	}
 
 	@Override
@@ -69,9 +66,12 @@ public class Voto implements Comparable<Voto>{
 	}
 
 	@Override
-	public int compareTo(Voto v) {
-	
-		return this.getEsame().compareTo(v.getEsame());
+	public int compareTo(Voto altro) {
+		
+		return this.esame.compareTo(altro.getEsame());
 	}
+	
+	
+	
 	
 }
